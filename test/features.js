@@ -1,7 +1,7 @@
 var app = require("http-server").createServer();
 var assert = require('assert');
 var Browser = require('zombie');
-describe('contact page', function() {
+describe('index page', function() {
   before(function() {
     server = app.listen(3000);
     browser = new Browser({ site: 'http://localhost:3000' });
