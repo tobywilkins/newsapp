@@ -9,10 +9,21 @@ function ToDo(entry){
 	this.complete = false;
 }
 
-ToDo.prototype.display = function(){
-return (this.entry);
-};
+	ToDo.prototype = {
 
+	display: function() {
+		return (this.entry);
+	},
+
+	makeComplete: function() {
+		this.complete = true;
+	},
+
+	displayStatus: function() {
+	var status = this.complete ? 'Completed' : 'Not Completed';
+	return status;
+	}
+};
 exports.ToDo = ToDo;
 
 })(this);

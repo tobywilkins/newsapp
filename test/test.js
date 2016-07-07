@@ -10,12 +10,18 @@ var ToDoList = require('../src/toDoList.js').ToDoList;
 describe('ToDo', function(){
 
   it('can instantiate a to-do object', function(){
-      var toDo = new ToDo('Eat Breakfast');
-      expect(toDo).to.be.an.instanceof(ToDo);
-    });
+    var toDo = new ToDo('Eat Breakfast');
+    expect(toDo).to.be.an.instanceof(ToDo);
+  });
   it('can display its value',function(){
-  		var toDo = new ToDo('Eat Breakfast');
-  		expect(toDo.display()).to.include('Eat Breakfast');
+		var toDo = new ToDo('Eat Breakfast');
+		expect(toDo.display()).to.include('Eat Breakfast');
+  });
+
+  it('returns completed for complete todo\s', function() {
+    var toDo = new ToDo('Eat Breakfast');
+    toDo.makeComplete();
+    expect(toDo.displayStatus()).to.include('Completed');
   });
 });
 
@@ -24,6 +30,6 @@ describe('ToDoList', function() {
       var todolist = new ToDoList(ToDo);
       todolist.createToDo('Eat Breakfast');
       todolist.createToDo('Washing Up');
-      expect(todolist.convertListToHTML()).to.include('<ul>\n<li>Eat Breakfast</li>\n<li>Washing Up</li>\n</ul>');
+      expect(todolist.convertListToHTML()).to.include('<ul>\n<li>Eat Breakfast - Not Completed</li>\n<li>Washing Up - Not Completed</li>\n</ul>');
   });
 });

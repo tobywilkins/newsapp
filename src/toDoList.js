@@ -18,7 +18,7 @@ this.ToDo = ToDo;
 			var arrayLength = this.list.length;
 			var returnArray = ['<ul>','\n'];
 			for (var i = 0; i < arrayLength; i++) {
-    	returnArray.push(('<li>' + this.list[i].display() + '</li>' + '\n'));
+    	returnArray.push(('<li>' + this.list[i].display() +' - ' + this.list[i].displayStatus() + '</li>' + '\n'));
 			}
 			returnArray.push('</ul>');
 			return returnArray.join("");

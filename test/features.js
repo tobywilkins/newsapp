@@ -21,7 +21,7 @@ describe('index page', function() {
     browser.assert.status(200);
   });
   it('displays to-do list', function() {
-    browser.assert.text('#todos', 'Eat Breakfast Buy doggie biscuits');
+    browser.assert.text('#todos', 'Eat Breakfast - Not Completed Buy doggie biscuits - Not Completed');
   });
   it('should create a new to-do on form submission', function() {
     browser.fill('task', 'Wash Grandma');
@@ -29,6 +29,6 @@ describe('index page', function() {
     // browser.wait().then(function() {
     //   console.log(browser.dump());
     // });
-    browser.assert.text('#todos', 'Eat Breakfast Buy doggie biscuits Wash Grandma');
+    browser.assert.text('#todos', 'Eat Breakfast - Not Completed Buy doggie biscuits - Not Completed Wash Grandma - Not Completed');
   });
 });
