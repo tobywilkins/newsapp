@@ -21,6 +21,6 @@ describe('index page', function() {
     browser.assert.status(200);
   });
   it('displays to-do list', function() {
-    browser.assert.text('body', 'Eat Breakfast');
+    browser.assert.text('#todos', 'Eat Breakfast Buy doggie biscuits');
   });
 });

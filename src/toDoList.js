@@ -18,15 +18,14 @@ this.ToDo = ToDo;
 			var arrayLength = this.list.length;
 			var returnArray = ['<ul>','\n'];
 			for (var i = 0; i < arrayLength; i++) {
-    	returnArray.push(('<li>' + this.list[i].display() + '<li>' + '\n'));
+    	returnArray.push(('<li>' + this.list[i].display() + '</li>' + '\n'));
 			}
-			returnArray.push('<ul>');
+			returnArray.push('</ul>');
 			return returnArray.join("");
 		},
 
 		createToDo: function(value) {
 			this.list.push(new this.ToDo(value));
-
 		}
 	};
 	exports.ToDoList = ToDoList;

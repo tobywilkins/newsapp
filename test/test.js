@@ -24,6 +24,6 @@ describe('ToDoList', function() {
       var todolist = new ToDoList(ToDo);
       todolist.createToDo('Eat Breakfast');
       todolist.createToDo('Washing Up');
-      expect(todolist.convertListToHTML()).to.include('<ul>\n<li>Eat Breakfast<li>\n<li>Washing Up<li>\n<ul>');
+      expect(todolist.convertListToHTML()).to.include('<ul>\n<li>Eat Breakfast</li>\n<li>Washing Up</li>\n</ul>');
   });
 });
