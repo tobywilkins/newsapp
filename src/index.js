@@ -1,15 +1,20 @@
 window.onload = function() {
 
-todolist = new ToDoList(ToDo);
+  todolist = new ToDoList(ToDo);
 
-todolist.createToDo("Eat Breakfast");
-todolist.createToDo("Buy doggie biscuits");
+  todolist.createToDo("Eat Breakfast");
+  todolist.createToDo("Buy doggie biscuits");
 
-document.getElementById("todos").innerHTML = todolist.convertListToHTML();
+  reload();
 
-document.getElementById("newtodo").addEventListener('submit', function(event) {
-  alert('Hi this button works!');
-  event.preventDefault();
-});
+  document.getElementById("newtodo").addEventListener('submit', function(event) {
+    event.preventDefault();
+    todolist.createToDo(document.getElementById("task").value);
+    reload();
+  });
+
+  function reload() {
+    document.getElementById("todos").innerHTML = todolist.convertListToHTML();
+  };
 
 };

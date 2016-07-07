@@ -23,4 +23,12 @@ describe('index page', function() {
   it('displays to-do list', function() {
     browser.assert.text('#todos', 'Eat Breakfast Buy doggie biscuits');
   });
+  it('should create a new to-do on form submission', function() {
+    browser.fill('task', 'Wash Grandma');
+    browser.pressButton('submit');
+    // browser.wait().then(function() {
+    //   console.log(browser.dump());
+    // });
+    browser.assert.text('#todos', 'Eat Breakfast Buy doggie biscuits Wash Grandma');
+  });
 });
