@@ -16,16 +16,21 @@ this.ToDo = ToDo;
 
 		convertListToHTML: function() {
 			var arrayLength = this.list.length;
-			var returnArray = ['<ul>','\n'];
+			var returnArray = ['<div id="list">\n<ul>','\n'];
 			for (var i = 0; i < arrayLength; i++) {
-    	returnArray.push(('<li>' + this.list[i].display() +' - ' + this.list[i].displayStatus() + '</li>' + '\n'));
+    	returnArray.push('<li>' + this.list[i].display() +' - ' + this.list[i].displayStatus() + '</li>' + '\n');
+			returnArray.push('<form method="post" action="/todo/complete/' + i + '">\n<input type="submit" class="complete_button" id="' + i + '" value="Complete">\n</form>');
 			}
-			returnArray.push('</ul>');
+			returnArray.push('</ul>\n</div>');
 			return returnArray.join("");
 		},
 
 		createToDo: function(value) {
 			this.list.push(new this.ToDo(value));
+		},
+
+		getTodo: function(index) {
+			return this.list[index];
 		}
 	};
 	exports.ToDoList = ToDoList;

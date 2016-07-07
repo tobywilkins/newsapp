@@ -31,4 +31,8 @@ describe('index page', function() {
     // });
     browser.assert.text('#todos', 'Eat Breakfast - Not Completed Buy doggie biscuits - Not Completed Wash Grandma - Not Completed');
   });
+  it('should have a clickable button next to the to-do', function() {
+    browser.pressButton('#complete_0');
+    browser.assert.text('#todos', 'Eat Breakfast - Completed Buy doggie biscuits - Not Completed Wash Grandma - Not Completed');
+  });
 });

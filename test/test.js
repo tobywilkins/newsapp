@@ -32,4 +32,10 @@ describe('ToDoList', function() {
       todolist.createToDo('Washing Up');
       expect(todolist.convertListToHTML()).to.include('<ul>\n<li>Eat Breakfast - Not Completed</li>\n<li>Washing Up - Not Completed</li>\n</ul>');
   });
+  it('can return a todo', function() {
+    var todolist = new ToDoList(ToDo);
+    todolist.createToDo('Eat Breakfast');
+    todolist.createToDo('Washing Up');
+    expect(todolist.getTodo(0).display()).to.include('Eat Breakfast');
+  });
 });
