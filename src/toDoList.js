@@ -1,9 +1,11 @@
 /*jslint node: true */
+(function(exports){
 
-var ToDo = require('../src/toDo.js');
 
-function ToDoList() {
+// var ToDo = require('../src/toDo.js');
+function ToDoList(ToDo) {
 this.list = [];
+this.ToDo = ToDo;
 }
 
 	ToDoList.prototype = {
@@ -23,9 +25,9 @@ this.list = [];
 		},
 
 		createToDo: function(value) {
-			this.list.push(new ToDo(value));
+			this.list.push(new this.ToDo(value));
 
 		}
 	};
-
-	module.exports = ToDoList;
+	exports.ToDoList = ToDoList;
+})(this);
