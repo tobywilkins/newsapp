@@ -1,3 +1,5 @@
+var results = null
+
 var request = new XMLHttpRequest();
 request.open('GET', encodeURI('http://quiet-beach-24792.herokuapp.com/todos.json'));
 request.onreadystatechange = function(response) {
@@ -6,12 +8,13 @@ request.onreadystatechange = function(response) {
     var doc = window.document.createElement("doc");
     var a = request.responseText;
     console.log(a);
-    var b = JSON.parse(a);
-    return b;
+    var results = JSON.parse(a);
+      // create a method further down that takes an array and iterates through it and outputs the list - pass B into this method. 
   }
 };
 request.send();
 
+console.log(results)
 
 
 
