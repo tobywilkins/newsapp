@@ -1,3 +1,20 @@
+var request = new XMLHttpRequest();
+request.open('GET', encodeURI('http://quiet-beach-24792.herokuapp.com/todos.json'));
+request.onreadystatechange = function(response) {
+
+  if (request.readyState === 4) {
+    var doc = window.document.createElement("doc");
+    var a = request.responseText;
+    console.log(a);
+    var b = JSON.parse(a);
+    return b;
+  }
+};
+request.send();
+
+
+
+
 window.onload = function() {
 
   todolist = new ToDoList(ToDo);
@@ -23,11 +40,11 @@ window.onload = function() {
     }
     e.stopPropagation();
     reload();
-  };
+  }
 
   function reload() {
     document.getElementById("todos").innerHTML = todolist.convertListToHTML();
     document.getElementById('list').addEventListener('click', completeTodo, false);
-  };
+  }
 
 };
